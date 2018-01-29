@@ -21,4 +21,10 @@ class App extends Component {
   }
 };
 
-export default App;
+const mapStateToProps = (state) => {
+  return { items: state.items };
+}
+
+// Listening to change of state, calling custom method mapStateToProps(state) on that state change,
+// mapStateToProps that method provides a `slice` of state that we then want to provide the App with as a prop.
+export default App connect(mapStateToProps)(App);
